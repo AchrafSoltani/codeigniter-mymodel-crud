@@ -51,9 +51,9 @@ class MY_Model extends CI_Model
         $this->db->insert($this->table, $data);
     }
 
-    public function edit($id, $data)
+    public function edit($conditions, $data)
     {
-        $this->db->where('id', $id);
+        $this->db->where($conditions);
         $this->db->update($this->table, $data);
     }
 
