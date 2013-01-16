@@ -28,20 +28,42 @@ class MY_Model extends CI_Model
         $this->table = $_table;
     }
 
-    public function get($where = null, $limit = null, $offset = null)
+    public function get($where = null, $singleton = false, $limit = null, $offset = null)
     {
         $query = null;
 
         if($where == null)
         {
             $query = $this->db->get($this->table, $limit, $offset);
-            if($query->num_rows() > 0){ return $query->result();}
+            if($query->num_rows() > 0)
+            {
+                if($singleton)
+                {
+                    $data = $query->result();
+                    return $data[0];
+                }
+                else
+                {
+                    return $query->result();
+                }
+            }
             else return false;
         }
         else
         {
             $query = $this->db->get_where($this->table, $where, $limit, $offset);
-            if($query->num_rows() > 0){ return $query->result();}
+            if($query->num_rows() > 0)
+            {
+                if($singleton)
+                {
+                    $data = $query->result();
+                    return $data[0];
+                }
+                else
+                {
+                    return $query->result();
+                }
+            }
             else return false;
         }
     }
@@ -60,11 +82,6 @@ class MY_Model extends CI_Model
     public function delete($condition)
     {
         $this->db->delete($this->table, $condition);
-    }
-
-    public function count_all()
-    {
-        return $this->db->count_all($this->table);
     }
 }
  
