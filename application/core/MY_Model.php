@@ -83,5 +83,10 @@ class MY_Model extends CI_Model
     {
         $this->db->delete($this->table, $condition);
     }
+
+    public function count_all()
+    {
+        return $this->db->count_all_results($this->table);
+    }
 }
  
