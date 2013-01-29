@@ -9,7 +9,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  * @subpackage  core
  * @category    Database
  * @date        12/13/12 - 3:06 PM
- * @author      Achraf Soltani <contact@achrafsoltani.com>
+ * @author      Achraf Soltani <soltani.achraf@gmail.com>
  * @link        http://www.achrafsoltani.com
  */
 
